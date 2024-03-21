@@ -29,7 +29,7 @@ module IO_Module #(parameter DATA_WIDTH,
 
   always_comb begin
     NextState = State;
-     case (State)
+    unique case (State)
         T1: if (CS && i.ALE && IOM == valid) NextState = T2;
             else NextState = T1;
 
@@ -47,7 +47,7 @@ module IO_Module #(parameter DATA_WIDTH,
   always_comb 
   begin
     {OE,LoadAddress} = 0;
-     case (State)
+     unique case (State)
       T2: begin
         LoadAddress = 1;
       end
